@@ -24,6 +24,7 @@ if st.button("Predict"):
         img = Image.fromarray(canvas.image_data.astype('uint8'))
         img = img.convert('L').resize((28, 28))
         img_array = np.array(img) / 255.0
+        img_array = 1 - img_array
         img_array = img_array.reshape(1, 784)
         
         prediction = model.predict(img_array)
