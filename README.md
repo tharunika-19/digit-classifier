@@ -1,95 +1,140 @@
+<div align="center">
+
 # 🔢 Handwritten Digit Classifier
 
-A Machine Learning web application that recognizes handwritten digits (0–9) using a neural network trained on the MNIST dataset.
+### Deep Learning · Computer Vision · TensorFlow/Keras · Deployed on HuggingFace Spaces
 
-## 📌 Overview
+[![HuggingFace](https://img.shields.io/badge/🤗%20Live%20Demo-HuggingFace%20Spaces-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/tharunika19/digit-classifier1)
+[![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 
-This project uses TensorFlow/Keras to train a digit classification model and Streamlit to provide an interactive user interface where users can draw digits and receive real-time predictions.
+<br/>
 
-## 🚀 Features
+> **Draw any digit (0–9) on the canvas. The model tells you what it thinks — in real time.**
 
-* Draw digits directly on a canvas
-* Real-time digit prediction
-* Confidence score display
-* Probability distribution visualization
-* Interactive Streamlit interface
-* TensorFlow/Keras neural network model
+<br/>
 
-## 🛠️ Tech Stack
+![accuracy](https://img.shields.io/badge/Test%20Accuracy-98.28%25-brightgreen?style=flat-square)
+![dataset](https://img.shields.io/badge/Dataset-MNIST%2070K%20images-blue?style=flat-square)
+![status](https://img.shields.io/badge/Status-Live-success?style=flat-square)
 
-* Python
-* TensorFlow / Keras
-* NumPy
-* Streamlit
-* Pillow
-* streamlit-drawable-canvas
+</div>
 
-## 📊 Dataset
+---
 
-The model is trained on the MNIST dataset containing:
+## ✨ What It Does
 
-* 60,000 training images
-* 10,000 test images
-* Grayscale images of size 28×28 pixels
-* Digits from 0 to 9
+A neural network trained from scratch on the MNIST dataset that classifies handwritten digits with **98.28% test accuracy**. The live demo lets anyone draw a digit on an interactive canvas and get an instant prediction with confidence score.
+
+---
 
 ## 🧠 Model Architecture
 
-Input Layer:
+```
+Input (784)  →  Dense(128, ReLU)  →  Dropout(0.2)  →  Dense(64, ReLU)  →  Dense(10, Softmax)
+```
 
-* 784 input features (28×28 flattened image)
+| Layer | Details |
+|---|---|
+| Input | 784 neurons (28×28 flattened) |
+| Hidden Layer 1 | Dense(128) + ReLU activation |
+| Regularization | Dropout(0.2) to prevent overfitting |
+| Hidden Layer 2 | Dense(64) + ReLU activation |
+| Output | Dense(10) + Softmax (one per digit class) |
 
-Hidden Layers:
+---
 
-* Dense Layer (128 neurons, ReLU)
-* Dropout Layer (0.2)
-* Dense Layer (64 neurons, ReLU)
+## 📊 Results
 
-Output Layer:
+| Metric | Value |
+|---|---|
+| **Test Accuracy** | **98.28%** |
+| Optimizer | Adam |
+| Loss Function | Sparse Categorical Crossentropy |
+| Epochs | 10 |
+| Training Samples | 60,000 |
+| Test Samples | 10,000 |
 
-* Dense Layer (10 neurons, Softmax)
+<img width="1366" height="876" alt="image" src="https://github.com/user-attachments/assets/5f668b4b-9f79-4136-8d84-5b8fc5395fcd" />
+<img width="1197" height="816" alt="image" src="https://github.com/user-attachments/assets/7f122e07-7af7-433b-84b1-b47f472e9c09" />
 
-## 📈 Performance
 
-* Optimizer: Adam
-* Loss Function: Sparse Categorical Crossentropy
-* Accuracy: ~98% on the MNIST test dataset
 
-## ▶️ Running Locally
+---
+
+## 🗂️ Dataset
+
+**MNIST** — Modified National Institute of Standards and Technology database
+
+- 70,000 grayscale images of handwritten digits (0–9)
+- Image size: 28 × 28 pixels
+- 60,000 training / 10,000 test split
+- Pixel values normalized to [0, 1]
+
+---
+
+## 🚀 Try It Live
+
+👉 **[Open the Live Demo](https://tharunika19-digit-classifier1.hf.space/)**
+
+1. Draw a digit on the canvas
+2. Click **Predict**
+3. See the predicted digit + confidence score instantly
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool | Purpose |
+|---|---|
+| TensorFlow / Keras | Model building & training |
+| NumPy | Data preprocessing |
+| Matplotlib | Accuracy/loss visualization |
+| Streamlit | Interactive web app |
+| HuggingFace Spaces | Cloud deployment |
+| Google Colab | Training environment |
+
+---
+
+## 📁 Project Structure
+
+```
+digit-classifier/
+├── app.py               # Streamlit app with drawable canvas
+├── model.h5             # Trained Keras model
+├── train.ipynb          # Google Colab training notebook
+├── requirements.txt     # Dependencies
+└── README.md
+```
+
+---
+
+## 💻 Run Locally
 
 ```bash
+git clone https://github.com/tharunika-19/digit-classifier
+cd digit-classifier
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## 📂 Project Structure
+---
 
-```text
-digit-classifier/
-│
-├── app.py
-├── digit_classifier.keras
-├── requirements.txt
-└── README.md
-```
+## 📚 Concepts Demonstrated
 
-## 🎯 Learning Outcomes
+- **Neural Network design** — layer stacking, activation functions
+- **Regularization** — Dropout to reduce overfitting
+- **Training pipeline** — compile → fit → evaluate
+- **Model serialization** — saving and loading `.h5` files
+- **ML deployment** — Streamlit frontend on HuggingFace Spaces
 
-Through this project, I gained hands-on experience with:
+---
 
-* Neural Networks
-* Image Classification
-* TensorFlow/Keras
-* Model Deployment
-* Streamlit Web Applications
-* Data Preprocessing
+<div align="center">
 
-## 👩‍💻 Author
+Built by [Tharunika](https://github.com/tharunika-19) · B.Tech CSE (AIML) · JNTUH
 
-**Tharunika Bodasu**
+⭐ Star this repo if you found it useful!
 
-B.Tech Artificial Intelligence & Machine Learning
-Jawaharlal Nehru Technological University Hyderabad
-
-GitHub: https://github.com/tharunika-19
-LinkedIn: https://linkedin.com/in/tharunikabodasu
+</div>
