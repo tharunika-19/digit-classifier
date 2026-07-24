@@ -133,7 +133,7 @@ streamlit run app.py
 
 <div align="center">
 
-Built by [Tharunika](https://github.com/tharunika-19) · B.Tech CSE (AIML) · JNTUH
+Built by [Tharunika](https://github.com/tharunika-19)
 
 ⭐ Star this repo if you found it useful!
 
